@@ -14,18 +14,14 @@
  * limitations under the License.
  */
 
-package com.netflix.spinnaker.clouddriver.lambda.deploy.description;
+package com.netflix.spinnaker.clouddriver.lambda.deploy.exception;
 
-import com.netflix.spinnaker.kork.artifacts.model.Artifact;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+public class LambdaOperationException extends RuntimeException {
+  public LambdaOperationException(String message) {
+    super(message);
+  }
 
-@Data
-@EqualsAndHashCode(callSuper = false)
-public class InvokeLambdaFunctionDescription extends AbstractLambdaFunctionDescription {
-  String functionName;
-  String qualifier;
-
-  String payload;
-  Artifact payloadArtifact;
+  public LambdaOperationException(String message, Throwable cause) {
+    super(message, cause);
+  }
 }
